@@ -2,13 +2,13 @@
 
 **Equipo**:
 
- - Nombre integrante 1
- - Nombre integrante 2
+ - Andrea Paola Carmona Casiano
+ - Johan Mauricio Cerqueda Rojas
 
 **Contacto**: 
 
-- Correo integrante 1
-- Correo integrante 2
+- andrea.carmona@iberopuebla.mx
+- johan.cerqueda@iberopuebla.mx
 
 **Carrera**: Ingeniría Mecatrónica
 

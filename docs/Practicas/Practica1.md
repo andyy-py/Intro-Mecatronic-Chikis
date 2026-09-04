@@ -28,7 +28,7 @@ estado: completa   # borrador | completa
 ## Desarrollo
 ![Circuito armado en físico sobre la protoboard con sus componentes y conexiones.](./img/555.jpg){ width="300" }
 ![Simulación del circuito armado en la plataforma Tinkercad.](./img/digital.jpg){ width="300" }
-![Video de demostración del funcionamiento del circuito](./img/video-555.mp4){ width="300" }
+[*Hacer clic aquí para ver video de demostración del funcionamiento del circuito*](./img/video-555.mp4)
 
 | Magnitud | Teórico | Medido | % error |
 | --- | --- | --- | --- |

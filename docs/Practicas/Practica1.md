@@ -9,26 +9,26 @@ estado: completa   # borrador | completa
 
 ## Objetivos
 - Construir un oscilador que haga parpadear un LED ✅
-- calcular su frecuencia y duty teóricos, medirlos y comparar ✅
+- Calcular su frecuencia y duty teóricos, medirlos y comparar ✅
  
 ## Materiales
-• (1×) NE555 (DIP-8)
-• (1×) LED
-• (1×) Resistor para LED (330 Ω o 470 Ω)
-• (2×) Resistores temporizadores: ,
-    ◦ RA = 1kΩ
-    ◦ RB = 10kΩ
-• (1×) Capacitor de temporización:
-    ◦ C = 100µF (electrolítico)
-    ◦ C = 100nF (cerámico)
-• (1×) Capacitor 10 nF para pin 5 (CTRL) → estabilidad
-• Protoboard, cables, fuente 5V regulada
+• (1×) NE555 (DIP-8) <br>
+• (1×) LED <br>
+• (1×) Resistor para LED (330 Ω o 470 Ω) <br>
+• (2×) Resistores temporizadores: , <br>
+    ◦ RA = 1kΩ <br>
+    ◦ RB = 10kΩ <br>
+• (1×) Capacitor de temporización: <br>
+    ◦ C = 100µF (electrolítico) <br>
+    ◦ C = 100nF (cerámico) <br>
+• (1×) Capacitor 10 nF para pin 5 (CTRL) → estabilidad <br>
+• Protoboard, cables, fuente 5V regulada <br>
 
 
 ## Desarrollo
-![Pie de foto: Circuito armado en físico sobre la protoboard con sus componentes y conexiones.](img/555.jpg)
-![Pie de foto: Simulación del circuito armado en la plataforma Tinkercad.](img/digital.jpg)
-![Pie de foto: Video de demostración del funcionamiento del circuito](img/video-555.mp4)
+![Circuito armado en físico sobre la protoboard con sus componentes y conexiones.](./img/555.jpg)
+![Simulación del circuito armado en la plataforma Tinkercad.](./img/digital.jpg)
+<video src="./img/video-555.mp4" controls width="100%"></video>
 
 | Magnitud | Teórico | Medido | % error |
 | --- | --- | --- | --- |

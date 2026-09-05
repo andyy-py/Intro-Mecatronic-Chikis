@@ -33,7 +33,7 @@ estado: completa   # borrador | completa
 <br>
 [*Video de demostración del funcionamiento del circuito*](./img/video-555.mp4)
 
-explicación
+El circuito integrado 555 se encarga de controlar el tiempo, mientras que las resistencias y el capacitor definen qué tan rápido se carga y descarga la energía. Esto hace que la salida alterne continuamente entre encendido y apagado, logrando que el LED parpadee.
 
 | Magnitud | Teórico | Medido | % error |
 | --- | --- | --- | --- |

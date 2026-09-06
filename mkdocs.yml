@@ -47,7 +47,6 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 nav:
   - Inicio: index.md
-  - "Sobre Mí": SobreMi.md
   - "Prácticas":
       - "Practica 1": Practicas/Practica1.md
       - "Practica 2": Practicas/Practica2.md

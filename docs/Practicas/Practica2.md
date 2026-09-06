@@ -9,12 +9,12 @@ estado: completa   # borrador | completa
 
 ## Objetivos
 - **BLINK (salida digital):** ✅ 
-- LED externo en GPIO23 parpadeando a 1 Hz.
+    ◦ LED externo en GPIO23 parpadeando a 1 Hz.
 - **BLINK con botón (entrada digital):** ✅
-- El LED enciende mientras el botón está presionado (INPUT_PULLUP).
+    ◦ El LED enciende mientras el botón está presionado (INPUT_PULLUP).
 - **TOGGLE con antirrebote:** ✅
-- Cada presión del botón alterna el LED.
-- Sin delay().
+    ◦ Cada presión del botón alterna el LED.
+    ◦ Sin delay().
 
  
 ## Materiales
@@ -27,26 +27,26 @@ estado: completa   # borrador | completa
 
 
 ## Desarrollo
-**Esquemáticos**
-![Esquemático básico para parpadeo de LED](./img_practica_2/blink_esquema.png){ width=50% }
+**Esquemáticos** <br>
+![Esquemático básico para parpadeo de LED](./img_practica_2/blink_esquema.png){ width=50% } <br>
 *Esquemático de conexión BLINK* <br>
 
-![Esquemático para control mediante botón y antirrebote](./img_practica_2/boton_rebote_esquema.png){ width=50% }
+![Esquemático para control mediante botón y antirrebote](./img_practica_2/boton_rebote_esquema.png){ width=50% } <br>
 *Esquemático de conexión BLINK CON BOTÓN Y TOGGLE* <br>
 
 
-**Códigos**
-![Código fuente del programa Blink](./img_practica_2/blink_codigo.png){ width=50% }
+**Códigos** <br>
+![Código fuente del programa Blink](./img_practica_2/blink_codigo.png){ width=50% } <br>
 *Código implementado de BLINK* <br>
 
-![Código fuente del programa Blink con botón](./img_practica_2/blink_boton.png){ width=50% }
+![Código fuente del programa Blink con botón](./img_practica_2/blink_boton.png){ width=50% } <br>
 *Código implementado de BLINK CON BOTÓN* <br>
 
-![Código fuente del programa Antirrebote](./img_practica_2/rebote_codigo.png){ width=50% }
+![Código fuente del programa Antirrebote](./img_practica_2/rebote_codigo.png){ width=50% } <br>
 *Código implementado de TOGGLE* <br>
 
 
-**Demostraciones en Video**
+**Demostraciones en Video** <br>
 [*Demostración de funcionamiento: BLINK*](./img_practica_2/blink.mp4) <br>
 
 [*Demostración de funcionamiento: BLINK CON BOTÓN*](./img_practica_2/blink_boton.mp4) <br>
@@ -54,11 +54,11 @@ estado: completa   # borrador | completa
 [*Demostración de funcionamiento: TOGGLE*](./img_practica_2/rebote.mp4) <br>
 
 
-- **Explicación:** <br>
+**Explicación:** <br>
 *¿Qué es el rebote de un botón?*<br>
-
+-- <br>
 *¿Por qué con INPUT_PULLUP la lógica queda invertida?*<br>
-
+-- <br>
 
 ## Fallas
 - **Síntoma:** --

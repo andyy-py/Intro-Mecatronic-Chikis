@@ -26,15 +26,15 @@ estado: completa   # borrador | completa
 
 
 ## Desarrollo
-![Circuito armado en físico sobre la protoboard con sus componentes y conexiones.](./img_practica_1/555.jpg){ width=50% }
+![Circuito armado en físico sobre la protoboard con sus componentes y conexiones.](./img_practica_1/555.jpg){ width=50% } <br>
 *Circuito armado en físico sobre la protoboard con sus componentes y conexiones.* <br>
 
-![Simulación del circuito armado en la plataforma Tinkercad.](./img_practica_1/digital.jpg) { width=50% }
+![Simulación del circuito armado en la plataforma Tinkercad.](./img_practica_1/digital.jpg){ width=50% } <br>
 *Simulación del circuito armado en la plataforma Tinkercad.* <br>
 
 [*Video de demostración del funcionamiento del circuito*](./img_practica_1/video-555.mp4)
 
-- **Explicación:** El circuito integrado 555 se encarga de controlar el tiempo, mientras que las resistencias y el capacitor definen qué tan rápido se carga y descarga la energía. Esto hace que la salida alterne continuamente entre encendido y apagado, logrando que el LED parpadee.
+**Explicación:** El circuito integrado 555 se encarga de controlar el tiempo, mientras que las resistencias y el capacitor definen qué tan rápido se carga y descarga la energía. Esto hace que la salida alterne continuamente entre encendido y apagado, logrando que el LED parpadee.
 
 | Magnitud | Teórico | Medido | % error |
 | --- | --- | --- | --- |

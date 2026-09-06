@@ -1,55 +1,72 @@
 ---
-titulo: "Sesión 1 — 555 en astable"
-fecha: 2026-08-28
+titulo: "Sesión 2 — ESP32: Salida, Entrada & Antirrebote"
+fecha: 2026-09-04
 autor: "Andrea Paola Carmona Casiano, Johan Mauricio Cerqueda Rojas"
 estado: completa   # borrador | completa
 ---
 
-# Sesión 1 — 555 en astable
+# Sesión 2 — ESP32: Salida, Entrada & Antirrebote
 
 ## Objetivos
-- Construir un oscilador que haga parpadear un LED ✅
-- Calcular su frecuencia y duty teóricos, medirlos y comparar ✅
+- **BLINK (salida digital):** ✅ 
+- LED externo en GPIO23 parpadeando a 1 Hz.
+- **BLINK con botón (entrada digital):** ✅
+- El LED enciende mientras el botón está presionado (INPUT_PULLUP).
+- **TOGGLE con antirrebote:** ✅
+- Cada presión del botón alterna el LED.
+- Sin delay().
+
  
 ## Materiales
-• (1×) NE555 (DIP-8) <br>
-• (1×) LED <br>
-• (1×) Resistor para LED (330 Ω o 470 Ω) <br>
-• (2×) Resistores temporizadores: , <br>
-    ◦ RA = 1kΩ <br>
-    ◦ RB = 10kΩ <br>
-• (1×) Capacitor de temporización: <br>
-    ◦ C = 100µF (electrolítico) <br>
-    ◦ C = 100nF (cerámico) <br>
-• (1×) Capacitor 10 nF para pin 5 (CTRL) → estabilidad <br>
-• Protoboard, cables, fuente 5V regulada <br>
+- (1×) ESP32 DevKit V1 (WROOM-32) <br>
+- (1×) Cable USB de datos <br>
+- (1×) LED + (1×) resistor 220 Ω <br>
+- (1×) Push button <br>
+- (1×) Resistor 10 kΩ (opcional) <br>
+- Protoboard y jumpers <br>
 
 
 ## Desarrollo
-![Circuito armado en físico sobre la protoboard con sus componentes y conexiones.](./img_practica_1/555.jpg)
-*Circuito armado en físico sobre la protoboard con sus componentes y conexiones.*
-![Simulación del circuito armado en la plataforma Tinkercad.](./img_practica_1/digital.jpg)
-*Simulación del circuito armado en la plataforma Tinkercad.*
-<br>
-[*Video de demostración del funcionamiento del circuito*](./img_practica_1/video-555.mp4)
+**Esquemáticos**
+![Esquemático básico para parpadeo de LED](./img_practica_2/blink_esquema.png){ width=50% }
+*Esquemático de conexión BLINK* <br>
 
-- **Explicación:** El circuito integrado 555 se encarga de controlar el tiempo, mientras que las resistencias y el capacitor definen qué tan rápido se carga y descarga la energía. Esto hace que la salida alterne continuamente entre encendido y apagado, logrando que el LED parpadee.
+![Esquemático para control mediante botón y antirrebote](./img_practica_2/boton_rebote_esquema.png){ width=50% }
+*Esquemático de conexión BLINK CON BOTÓN Y TOGGLE* <br>
 
-| Magnitud | Teórico | Medido | % error |
-| --- | --- | --- | --- |
-| Vcc (V) | 5.0 | 5.0 | 0% |
-| V de salida en alto (V) | ≈ Vcc - 1.5 <br> 5.0 - 1.5 = 3.5 | 4.40 | 25.71% |
-| Frecuencia (Hz) | 0.69 | 1.187 | 72.02% |
-| Duty (%) | 52.4 | 95.58 | 82.40% |
-| I de LED (mA) | (Vout - Vf) / 330 <br> (5.0 - 3.5) / 330 = 4.54 | 0.879 | 80.63% |
+
+**Códigos**
+![Código fuente del programa Blink](./img_practica_2/blink_codigo.png){ width=50% }
+*Código implementado de BLINK* <br>
+
+![Código fuente del programa Blink con botón](./img_practica_2/blink_boton.png){ width=50% }
+*Código implementado de BLINK CON BOTÓN* <br>
+
+![Código fuente del programa Antirrebote](./img_practica_2/rebote_codigo.png){ width=50% }
+*Código implementado de TOGGLE* <br>
+
+
+**Demostraciones en Video**
+[*Demostración de funcionamiento: BLINK*](./img_practica_2/blink.mp4) <br>
+
+[*Demostración de funcionamiento: BLINK CON BOTÓN*](./img_practica_2/blink_boton.mp4) <br>
+
+[*Demostración de funcionamiento: TOGGLE*](./img_practica_2/rebote.mp4) <br>
+
+
+- **Explicación:** <br>
+*¿Qué es el rebote de un botón?*<br>
+
+*¿Por qué con INPUT_PULLUP la lógica queda invertida?*<br>
+
 
 ## Fallas
-- **Síntoma:** Los valores medidos en el circuito salieron con un porcentaje de error muy alto en comparación con los valores teóricos, además de que el LED del timer parpadeaba más lento y con menos luz que al principio.
-- **Cómo lo encontré:** Al comparar la tabla de resultados y volver a conectar el circuito, notamos la diferencia en la luz del LED y comparamos los componentes que usamos con los datos que se usaron para el cálculo teórico.
-- **Solución:** En esta práctica no modificamos el circuito porque no contábamos con otros componentes ahí mismo. Nuestra solución fue analizar el problema; identificamos que el alto porcentaje de error se debió a la diferencia entre los valores teóricos y los componentes reales usados.
+- **Síntoma:** --
+- **Cómo lo encontré:** --
+- **Solución:** --
 
 ## Aprendizajes
-En esta práctica aprendimos a usar correctamente el osciloscopio, cambiando a DC y midiendo el valor en alto (high), la frecuencia y el duty cycle sin confundirnos con los picos de la señal. También nos dimos cuenta de cómo cambian las mediciones entre la teoría y la realidad, porque usar resistencias y capacitores un poco diferentes puede cambiar bastante los resultados finales.
+--
 
 ## Siguiente paso
-Para las siguientes prácticas buscamos entender mejor cómo afecta cambiar el tamaño de una resistencia o un capacitor en el circuito. Así ya sabremos qué esperar cuando los datos de las simulaciones no coincidan tanto con lo que medimos en clase.
+--

@@ -1,7 +1,7 @@
 ---
 titulo: "Sesión 2 — ESP32: Salida, Entrada & Antirrebote"
 fecha: 2026-09-04
-autor: "Andrea Paola Carmona Casiano, Johan Mauricio Cerqueda Rojas"
+autor: "Andrea Paola Carmona Casiano, Johan Mauricio Cerqueda Rojas, Francisco Javier Pérez Hernández"
 estado: completa   # borrador | completa
 ---
 

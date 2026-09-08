@@ -34,7 +34,7 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: red
+      primary: purple
   features:
     - content.code.copy
     - content.tooltips

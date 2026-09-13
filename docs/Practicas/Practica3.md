@@ -56,6 +56,11 @@ En esta práctica se llevó a cabo la simulación y el control de dos motores DC
 ![Calculos del Duty](./img_practica_3/duty.png){ width=50% } <br>
 *Calculos del Duty* <br>
 
+La corriente de arranque es mayor porque al inicio el motor se comporta casi como un cortocircuito (sin fuerza electromotriz opuesta), demandando máxima energía para romper el estado de reposo
+
+![corriente en giro libre](./img_practica_3/corriente_giro_libre.png){ width=50% } <br>
+*corriente en giro libre* <br>
+
 ## Fallas
 - **Síntoma:** Al iniciar la simulación en Tinkercad, ninguno de los dos motores DC presentaba movimiento , a pesar de que el código parecía estar ejecutando las funciones de movimiento.
 - **Cómo lo encontré:** Con el apoyo de herramientas de inteligencia artificial para auditar la estructura del programa y la lógica de conexiones, se identificó y corrigió el código fuente mediante la declaración de las variables de habilitación (enable1 y enable2) en los pines PWM del Arduino.

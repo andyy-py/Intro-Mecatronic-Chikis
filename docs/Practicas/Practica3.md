@@ -62,9 +62,9 @@ La corriente de arranque es mayor porque al inicio el motor se comporta casi com
 *corriente en giro libre* <br>
 
 ## Fallas
-- **Síntoma:** Al iniciar la simulación en Tinkercad, ninguno de los dos motores DC presentaba movimiento , a pesar de que el código parecía estar ejecutando las funciones de movimiento.
-- **Cómo lo encontré:** Con el apoyo de herramientas de inteligencia artificial para auditar la estructura del programa y la lógica de conexiones, se identificó y corrigió el código fuente mediante la declaración de las variables de habilitación (enable1 y enable2) en los pines PWM del Arduino.
-- **Solución:** Tras cargar el código corregido y ejecutar la simulación, el motor respondio inmediatamente, logrando realizar la secuencia de avance, paro y reversa de manera automatizada y continua.
+- **Síntoma:** Al iniciar la simulación en Tinkercad, ninguno de los dos motores DC presentaba movimiento , a pesar de que el código parecía estar ejecutando las funciones de movimiento. Durante las pruebas, solo uno de los dos motores DC giraba, mientras que el otro permanecía completamente inactivo a pesar de recibir la orden desde el programa.
+- **Cómo lo encontré:** Con el apoyo de herramientas de inteligencia artificial para auditar la estructura del programa y la orientación de la docente, se verificó que el cableado físico del circuito fuera correcto. Esto permitió aislar la falla y detectar que el problema radicaba exclusivamente en el código. Existía una discrepancia en la declaración de las variables de entrada del motor inactivo; el código apuntaba a pines de salida del Arduino distintos a los que estaban conectados físicamente al motor.
+- **Solución:** Se redefinieron y corrigieron los pines de entrada del motor en el código fuente para que coincidieran exactamente con el cableado del circuito, logrando que el Arduino reconociera y controlara correctamente ambos motores. Tras cargar el código corregido y ejecutar la simulación, el motor respondio inmediatamente, logrando realizar la secuencia de avance, paro y reversa de manera automatizada y continua.
 
 ## Aprendizajes
 Aprendimos que funciona como un puente entre el Arduino y los motores, permitiendo controlar la dirección en la que giran (adelante o atrás) y frenarlos de forma segura. del mismo modo, aprendimos que funciona como un puente entre el Arduino y los motores, permitiendo controlar la dirección en la que giran (adelante o atrás) y frenarlos de forma segura.

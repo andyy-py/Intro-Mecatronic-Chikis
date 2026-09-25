@@ -8,8 +8,8 @@ estado: completa   # borrador | completa
 # Sesión 1 — 555 en astable
 
 ## Objetivos
-- Construir un oscilador que haga parpadear un LED ✅
-- Calcular su frecuencia y duty teóricos, medirlos y comparar ✅
+- Construir un oscilador que haga parpadear un LED. ✔️
+- Calcular su frecuencia y duty teóricos, medirlos y comparar. ✔️
  
 ## Materiales
 - (1×) NE555 (DIP-8) <br>

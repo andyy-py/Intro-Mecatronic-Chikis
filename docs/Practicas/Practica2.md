@@ -8,11 +8,11 @@ estado: completa   # borrador | completa
 # Sesión 2 — ESP32: Salida, Entrada & Antirrebote
 
 ## Objetivos
-- **BLINK (salida digital):** ✅ <br>
+- **BLINK (salida digital):** ✔️ <br>
     ◦ LED externo en GPIO23 parpadeando a 1 Hz.
-- **BLINK con botón (entrada digital):** ✅ <br>
+- **BLINK con botón (entrada digital):** ✔️ <br>
     ◦ El LED enciende mientras el botón está presionado (INPUT_PULLUP).
-- **TOGGLE con antirrebote:** ✅ <br>
+- **TOGGLE con antirrebote:** ✔️ <br>
     ◦ Cada presión del botón alterna el LED. <br>
     ◦ Sin delay().
 

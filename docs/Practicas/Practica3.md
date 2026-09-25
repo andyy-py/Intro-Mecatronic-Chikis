@@ -8,14 +8,14 @@ estado: completa   # borrador | completa
 # Sesión 3 — Motor DC, Puente H & Servo
 
 ## Objetivos
-- **Dirección y velocidad (motor DC):** ✅ <br>
+- **Dirección y velocidad (motor DC):** ✔️ <br>
     ◦ Motor gira en ambos sentidos controlado por in1/in2. <br>
     ◦ Control de velocidad por PWM (mínimo 3 velocidades distintas). <br>
     ◦ Identifica el PWM mínimo de arranque del motor. <br>
-- **Prueba de carga:** ✅ <br>
+- **Prueba de carga:** ✔️ <br>
     ◦ Mide corriente en arranque y en giro libre (multímetro en serie). <br>
     ◦ Compara ambos valores, ¿cuál es mayor y por qué? <br>
-- **Servo:** ✅ <br>
+- **Servo:** ✔️ <br>
     ◦ Demuestra 3 posiciones (0°, 90°, 180°).<br>
     ◦ Muestra el cálculo de duty para cada una.
 

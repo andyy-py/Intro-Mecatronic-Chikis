@@ -18,7 +18,7 @@ estado: completa   # borrador | completa
 - **Filtro:** ✔️ <br>
     ◦ Demuestra 3 posiciones (0°, 90°, 180°).<br>
     ◦ Muestra el cálculo de duty para cada una. 
-- **MPU6050:** ❌
+- **MPU6050:** ❌ <br>
     ◦ Lectura de roll y pitch en al menos 3 inclinaciones distintas.<br>
     ◦ Detección de al menos un impacto con umbral ajustado. <br>
     (No realizada por falta del material)
@@ -34,15 +34,15 @@ estado: completa   # borrador | completa
 
 
 ## Desarrollo
-# 1. Curvas de calibración del potenciómetro (ADC vs. ángulo/posición) y del LM35 (T referencia vs. ADC), con la recta ajustada.
+#### 1. Curvas de calibración del potenciómetro (ADC vs. ángulo/posición) y del LM35 (T referencia vs. ADC), con la recta ajustada.
 
 Con la recta ajustada: La práctica pide leer el potenciómetro mediante el ADC del ESP32 y relacionar la lectura con posición o ángulo. El ESP32 utiliza valores ADC de 0 a 4095 y la presentación recomienda usar pines ADC1.
 
-![Eje X: lectura ADC, Eje Y: ángulo de referencia.](./img_practica_4/Imagen1.png){ width=50% } ![Eje X: lectura ADC, Eje Y: ángulo de referencia.](./img_practica_4/Imagen2.png){ width=50% } <br>
+![Eje X: lectura ADC, Eje Y: ángulo de referencia.](./img_practica_4/Imagen1.png){ width=50% }   ![Eje X: lectura ADC, Eje Y: ángulo de referencia.](./img_practica_4/Imagen2.png){ width=50% } <br>
 *Eje X: lectura ADC, Eje Y: ángulo de referencia.* <br>
 
 
-# 2.Tablas de datos
+#### 2.Tablas de datos
 
 | Punto | Ángulo de referencia (°) | Lectura ADC | Ángulo calculado (°) | Error (°) |
 | :--- | :---: | :---: | :---: | :---: |
@@ -52,8 +52,7 @@ Con la recta ajustada: La práctica pide leer el potenciómetro mediante el ADC 
 | **75%** | 202.5° | 3060 | 201.8° | -0.7° |
 | **Máximo** | 270° | 4080 | 269° | -1° |
 
-<br>
-Recorrido de 0° a 270°
+*Recorrido de 0° a 270°* <br>
 
 | Punto | T<sub>referencia</sub> (°C) | Lectura ADC | T<sub>calculada</sub> (°C) | Error (°C) |
 | :--- | :---: | :---: | :---: | :---: |
@@ -63,12 +62,11 @@ Recorrido de 0° a 270°
 | **Lata fría** | 18.0 °C | 220 | 17.73 °C | -0.27°C |
 | **Otro** | 68.3 | 848 | 68.33 | mismo |
 
-<br>
-Temperatura detectada
-<br>
+*Temperatura detectada* <br>
+
 Para tener los datos de las tablas, fue necesario realizar el circuito físico e instalar diferentes programas, para que el Arduino detectara el Esp35, una vez lo detectó, fue necesario realizar el código para que este funcionara y mostrara los datos necesarios
 
-![Ángulo cambia a 67.5 y marca diferente ADC](./img_practica_4/Captura1.png){ width=50% } ![Ángulo cambia a 67.5 y marca diferente ADC](./img_practica_4/Imagen3.png){ width=50% } <br>
+![Ángulo cambia a 67.5 y marca diferente ADC](./img_practica_4/Captura1.png){ width=50% }   ![Ángulo cambia a 67.5 y marca diferente ADC](./img_practica_4/Imagen3.png){ width=50% } <br>
 *Ángulo cambia a 67.5 y marca diferente ADC* <br>
 
 ![Ángulo de 135.5, ADC 2055](./img_practica_4/Imagen4.png){ width=50% } <br>
@@ -119,6 +117,19 @@ $$
 $$
 T \approx 30.14\text{ °C}
 $$
+
+**LM35** <br>
+![Temperatura: 68.2, ADC:842](./img_practica_4/Captura2.png){ width=50% }
+*Temperatura: 68.2, ADC:842* <br>
+
+
+
+
+
+
+
+
+
 
 
 ![--](./img_practica_4/--){ width=50% }

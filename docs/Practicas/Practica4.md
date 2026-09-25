@@ -36,7 +36,7 @@ estado: completa   # borrador | completa
 ## Desarrollo
 ### 1. Curvas de calibración del potenciómetro (ADC vs. ángulo/posición) y del LM35 (T referencia vs. ADC), con la recta ajustada.
 
-Con la recta ajustada: La práctica pide leer el potenciómetro mediante el ADC del ESP32 y relacionar la lectura con posición o ángulo. El ESP32 utiliza valores ADC de 0 a 4095 y la presentación recomienda usar pines ADC1.
+**Con la recta ajustada:** La práctica pide leer el potenciómetro mediante el ADC del ESP32 y relacionar la lectura con posición o ángulo. El ESP32 utiliza valores ADC de 0 a 4095 y la presentación recomienda usar pines ADC1.
 
 ![Eje X: lectura ADC, Eje Y: ángulo de referencia.](./img_practica_4/Imagen1.png){ width=40% } ![Eje X: lectura ADC, Eje Y: ángulo de referencia.](./img_practica_4/Imagen2.png){ width=40% } <br>
 
@@ -53,7 +53,6 @@ Con la recta ajustada: La práctica pide leer el potenciómetro mediante el ADC 
 | **50%** | 135° | 2055 | 135.5° | +0.5° |
 | **75%** | 202.5° | 3060 | 201.8° | -0.7° |
 | **Máximo** | 270° | 4080 | 269° | -1° |
-
 *Recorrido de 0° a 270°* <br>
 
 | Punto | T<sub>referencia</sub> (°C) | Lectura ADC | T<sub>calculada</sub> (°C) | Error (°C) |
@@ -63,7 +62,6 @@ Con la recta ajustada: La práctica pide leer el potenciómetro mediante el ADC 
 | **Lámpara** | 42.0 °C | 518 | 41.74 °C | -0.26 °C |
 | **Lata fría** | 18.0 °C | 220 | 17.73 °C | -0.27°C |
 | **Otro** | 68.3 | 848 | 68.33 | mismo |
-
 *Temperatura detectada* <br>
 
 Para tener los datos de las tablas, fue necesario realizar el circuito físico e instalar diferentes programas, para que el Arduino detectara el Esp35, una vez lo detectó, fue necesario realizar el código para que este funcionara y mostrara los datos necesarios
@@ -147,7 +145,6 @@ En la gráfica se observa que la señal cruda presenta pequeñas fluctuaciones a
 | **3** | Moderado | Bajo | Muy rápida | Sigue teniendo variaciones |
 | **10** | Bajo | Bueno | Rápida | Buen equilibrio |
 | **50** | Muy bajo | Muy alta | Lenta | Demasiado retraso |
-<br>
 
 La presentación pide probar:
 
@@ -203,4 +200,4 @@ Uno de los principales obstáculos fue el estado del cable USB de conexión. Al 
 
 Lamentablemente, no se pudo realizar la práctica con el MPU6050. Primero, debido a que no se contaba físicamente con el sensor durante el desarrollo. En segundo lugar, los intentos de simulación en la plataforma Wokwi fallaron; el servidor de compilación presentaba una carga alta constante ("Build server load"), lo que impedía que el proyecto se ejecutara y las lecturas de los sensores no se generaban, mostrando la simulación en un estado de pausa indefinida. <br>
 
-![final](./img_practica_4/Imagen13.jpg){ width=40% } <br>
+![final](./img_practica_4/Imagen13.png){ width=40% } <br>

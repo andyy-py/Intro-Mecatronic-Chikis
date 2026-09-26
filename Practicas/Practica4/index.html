@@ -1,0 +1,1296 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curso de Introducción a la Mecatrónica — IBERO Puebla">
+      
+      
+      
+      
+        <link rel="prev" href="../Practica3/">
+      
+      
+        <link rel="next" href="../Practica5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Practica 4 - Introducción a la Mecatrónica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sesion-4-sensores-101" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Introducción a la Mecatrónica" class="md-header__button md-logo" aria-label="Introducción a la Mecatrónica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introducción a la Mecatrónica
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Practica 4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="indigo"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Introducción a la Mecatrónica" class="md-nav__button md-logo" aria-label="Introducción a la Mecatrónica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introducción a la Mecatrónica
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prácticas
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Prácticas
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practica 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practica 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practica 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practica 4
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practica 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materiales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desarrollo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-curvas-de-calibracion-del-potenciometro-adc-vs-anguloposicion-y-del-lm35-t-referencia-vs-adc-con-la-recta-ajustada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Curvas de calibración del potenciómetro (ADC vs. ángulo/posición) y del LM35 (T referencia vs. ADC), con la recta ajustada.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2tablas-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.Tablas de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-captura-del-serial-plotter-mostrando-senal-cruda-vs-filtrada-con-la-eleccion-de-n-justificada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Captura del Serial Plotter mostrando señal cruda vs. filtrada, con la elección de N justificada.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-codigo-comentado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Código comentado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-esquematicos-con-conexiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Esquemáticos con conexiones.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-evidencias-del-armado-fisico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Evidencias del armado físico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7bitacora-que-fallo-que-resulto-inesperado-el-adc-es-tan-lineal-como-prometia-la-formula-teorica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.Bitácora: qué falló, qué resultó inesperado (¿el ADC es tan lineal como prometía la fórmula teórica?)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Practica5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practica 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Proyectos/Proyecto1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proyecto 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reflexiones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reflexiones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reflexiones/VisionMecatronicaAndy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Mecatronica, Andy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Reflexiones/VisionMecatronicaJohan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Mecatronica, Johan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objetivos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materiales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materiales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#desarrollo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Desarrollo
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Desarrollo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-curvas-de-calibracion-del-potenciometro-adc-vs-anguloposicion-y-del-lm35-t-referencia-vs-adc-con-la-recta-ajustada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Curvas de calibración del potenciómetro (ADC vs. ángulo/posición) y del LM35 (T referencia vs. ADC), con la recta ajustada.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2tablas-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.Tablas de datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-captura-del-serial-plotter-mostrando-senal-cruda-vs-filtrada-con-la-eleccion-de-n-justificada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Captura del Serial Plotter mostrando señal cruda vs. filtrada, con la elección de N justificada.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-codigo-comentado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Código comentado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-esquematicos-con-conexiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Esquemáticos con conexiones.
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-evidencias-del-armado-fisico" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Evidencias del armado físico
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7bitacora-que-fallo-que-resulto-inesperado-el-adc-es-tan-lineal-como-prometia-la-formula-teorica" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.Bitácora: qué falló, qué resultó inesperado (¿el ADC es tan lineal como prometía la fórmula teórica?)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sesion-4-sensores-101">Sesión 4 — Sensores 101</h1>
+<h2 id="objetivos">Objetivos</h2>
+<ul>
+<li><strong>Potenciómetro:</strong> ✔️ <br>
+    ◦ Motor gira en ambos sentidos controlado por in1/in2. <br>
+    ◦ Control de velocidad por PWM (mínimo 3 velocidades distintas). <br>
+    ◦ Identifica el PWM mínimo de arranque del motor. <br></li>
+<li><strong>LM35 (calibración):</strong> ✔️ <br>
+    ◦ Mide corriente en arranque y en giro libre (multímetro en serie). <br>
+    ◦ Compara ambos valores, ¿cuál es mayor y por qué? <br></li>
+<li><strong>Filtro:</strong> ✔️ <br>
+    ◦ Demuestra 3 posiciones (0°, 90°, 180°).<br>
+    ◦ Muestra el cálculo de duty para cada una. </li>
+<li><strong>MPU6050:</strong> ❌ <br>
+    ◦ Lectura de roll y pitch en al menos 3 inclinaciones distintas.<br>
+    ◦ Detección de al menos un impacto con umbral ajustado. <br>
+    (No realizada por falta del material)</li>
+</ul>
+<h2 id="materiales">Materiales</h2>
+<ul>
+<li>(1×) ESP32 DevKit V1 <br></li>
+<li>(1×) Potenciómetro 10 kΩ <br></li>
+<li>(1×) LM35 <br></li>
+<li>(1×) Acelerómetro MPU6050 (módulo I2C) <br></li>
+<li>Termómetro de referencia (ambiental o infrarrojo del laboratorio) <br></li>
+<li>Protoboard y jumpers <br></li>
+</ul>
+<h2 id="desarrollo">Desarrollo</h2>
+<h3 id="1-curvas-de-calibracion-del-potenciometro-adc-vs-anguloposicion-y-del-lm35-t-referencia-vs-adc-con-la-recta-ajustada">1. Curvas de calibración del potenciómetro (ADC vs. ángulo/posición) y del LM35 (T referencia vs. ADC), con la recta ajustada.</h3>
+<p><strong>Con la recta ajustada:</strong> La práctica pide leer el potenciómetro mediante el ADC del ESP32 y relacionar la lectura con posición o ángulo. El ESP32 utiliza valores ADC de 0 a 4095 y la presentación recomienda usar pines ADC1.</p>
+<p><img alt="Eje X: lectura ADC, Eje Y: ángulo de referencia." src="../img_practica_4/Imagen1.png" width="40%" /> <img alt="Eje X: lectura ADC, Eje Y: ángulo de referencia." src="../img_practica_4/Imagen2.png" width="40%" /> <br></p>
+<p><em>Eje X: lectura ADC, Eje Y: ángulo de referencia.</em> <br></p>
+<hr />
+<h3 id="2tablas-de-datos">2.Tablas de datos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Punto</th>
+<th style="text-align: center;">Ángulo de referencia (°)</th>
+<th style="text-align: center;">Lectura ADC</th>
+<th style="text-align: center;">Ángulo calculado (°)</th>
+<th style="text-align: center;">Error (°)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Mínimo</strong></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">1.6°</td>
+<td style="text-align: center;">+1.6°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>25%</strong></td>
+<td style="text-align: center;">67.5°</td>
+<td style="text-align: center;">1015</td>
+<td style="text-align: center;">66.9°</td>
+<td style="text-align: center;">-0.6°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>50%</strong></td>
+<td style="text-align: center;">135°</td>
+<td style="text-align: center;">2055</td>
+<td style="text-align: center;">135.5°</td>
+<td style="text-align: center;">+0.5°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>75%</strong></td>
+<td style="text-align: center;">202.5°</td>
+<td style="text-align: center;">3060</td>
+<td style="text-align: center;">201.8°</td>
+<td style="text-align: center;">-0.7°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Máximo</strong></td>
+<td style="text-align: center;">270°</td>
+<td style="text-align: center;">4080</td>
+<td style="text-align: center;">269°</td>
+<td style="text-align: center;">-1°</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Recorrido de 0° a 270°</em> <br></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Punto</th>
+<th style="text-align: center;">T<sub>referencia</sub> (°C)</th>
+<th style="text-align: center;">Lectura ADC</th>
+<th style="text-align: center;">T<sub>calculada</sub> (°C)</th>
+<th style="text-align: center;">Error (°C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ambiente</strong></td>
+<td style="text-align: center;">24.0 °C</td>
+<td style="text-align: center;">296</td>
+<td style="text-align: center;">23.85 °C</td>
+<td style="text-align: center;">-0.15 °C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Entre dedos</strong></td>
+<td style="text-align: center;">30.0 °C</td>
+<td style="text-align: center;">374</td>
+<td style="text-align: center;">30.14 °C</td>
+<td style="text-align: center;">+.14 °C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lámpara</strong></td>
+<td style="text-align: center;">42.0 °C</td>
+<td style="text-align: center;">518</td>
+<td style="text-align: center;">41.74 °C</td>
+<td style="text-align: center;">-0.26 °C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lata fría</strong></td>
+<td style="text-align: center;">18.0 °C</td>
+<td style="text-align: center;">220</td>
+<td style="text-align: center;">17.73 °C</td>
+<td style="text-align: center;">-0.27°C</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Otro</strong></td>
+<td style="text-align: center;">68.3</td>
+<td style="text-align: center;">848</td>
+<td style="text-align: center;">68.33</td>
+<td style="text-align: center;">mismo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Temperatura detectada</em> <br></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Para tener los datos de las tablas, fue necesario realizar el circuito físico e instalar diferentes programas, para que el Arduino detectara el Esp35, una vez lo detectó, fue necesario realizar el código para que este funcionara y mostrara los datos necesarios</p>
+<p><img alt="Ángulo cambia a 67.5 y marca diferente ADC" src="../img_practica_4/Captura1.png" width="40%" /> <img alt="Ángulo cambia a 67.5 y marca diferente ADC" src="../img_practica_4/Imagen3.png" width="40%" /> <br></p>
+<p><em>Ángulo cambia a 67.5 y marca diferente ADC</em> <br></p>
+<p><img alt="Ángulo de 135.5, ADC 2055" src="../img_practica_4/Imagen4.png" width="40%" /> <br>
+<em>Ángulo de 135.5, ADC 2055</em> <br></p>
+<p><img alt="Ángulo: 202.5" src="../img_practica_4/Imagen5.png" width="40%" /> <br>
+<em>Ángulo: 202.5</em> <br></p>
+<p><img alt="Ángulo: 270" src="../img_practica_4/Imagen6.png" width="40%" /> <br>
+<em>Ángulo: 270</em> <br></p>
+<hr />
+<p><strong>Tabla del LM35</strong> <br>
+El LM35 entrega aproximadamente <span class="arithmatex">\(10\text{ mV}\)</span> por cada <span class="arithmatex">\(\text{°C}\)</span>: a <span class="arithmatex">\(25\text{ °C}\)</span>, su salida es <span class="arithmatex">\(0.25\text{ V}\)</span>.</p>
+<div class="arithmatex">\[
+T\,[\text{°C}] = V_{out} \times 100
+\]</div>
+<p>Además:</p>
+<div class="arithmatex">\[
+V = \frac{ADC}{4095} \times 3.3
+\]</div>
+<p>Por tanto:</p>
+<div class="arithmatex">\[
+T = \frac{ADC}{4095} \times 3.3 \times 100
+\]</div>
+<p>Por ejemplo, para <span class="arithmatex">\(\text{ADC} = 374\)</span>:</p>
+<div class="arithmatex">\[
+V = \frac{374}{4095}(3.3)
+\]</div>
+<div class="arithmatex">\[
+V \approx 0.3014\text{ V}
+\]</div>
+<p>Entonces:</p>
+<div class="arithmatex">\[
+T = 0.3014(100)
+\]</div>
+<div class="arithmatex">\[
+T \approx 30.14\text{ °C}
+\]</div>
+<hr />
+<p><strong>LM35</strong> <br>
+<img alt="Temperatura: 68.2, ADC:842" src="../img_practica_4/Captura2.png" width="40%" /> <br>
+<em>Temperatura: 68.2, ADC:842</em> <br></p>
+<p>Después de obtener cinco puntos de referencia se realizó un ajuste lineal. La ecuación encontrada fue aproximadamente T=0.08007ADC+0.263. Al utilizar esta ecuación, las lecturas permanecieron cercanas a las temperaturas de referencia y se redujo parte del error producido por las variaciones del ADC.</p>
+<hr />
+<h3 id="3-captura-del-serial-plotter-mostrando-senal-cruda-vs-filtrada-con-la-eleccion-de-n-justificada">3. Captura del Serial Plotter mostrando señal cruda vs. filtrada, con la elección de N justificada.</h3>
+<p><img alt="Serial Plotter: N=10" src="../img_practica_4/Imagen7.png" width="40%" /> <br>
+<em>Serial Plotter: N = 10</em> <br></p>
+<p><strong>Señal Cruda (Azul):</strong> Muestra cambios abruptos e instantáneos (escalones verticales) cuando giras el potenciómetro o cambia la lectura, además de picos ruidosos en los extremos altos y bajos.
+Señal Filtrada (Naranja): Realiza una pendiente suave (rampa). Elimina los picos repentinos de ruido y atenúa la fluctuación brusca, a costa de un pequeño retraso suave en el tiempo de respuesta. <br></p>
+<p>En la gráfica se observa que la señal cruda presenta pequeñas fluctuaciones aunque la temperatura permanezca prácticamente constante. Después de aplicar un promedio móvil con N = 10, las variaciones disminuyen y la señal se mantiene más estable. <br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">N</th>
+<th style="text-align: left;">RUIDO</th>
+<th style="text-align: left;">SUAVIDAD</th>
+<th style="text-align: left;">VELOCIDAD DE RESPUESTA</th>
+<th style="text-align: left;">RESULTADO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>3</strong></td>
+<td style="text-align: left;">Moderado</td>
+<td style="text-align: left;">Bajo</td>
+<td style="text-align: left;">Muy rápida</td>
+<td style="text-align: left;">Sigue teniendo variaciones</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>10</strong></td>
+<td style="text-align: left;">Bajo</td>
+<td style="text-align: left;">Bueno</td>
+<td style="text-align: left;">Rápida</td>
+<td style="text-align: left;">Buen equilibrio</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>50</strong></td>
+<td style="text-align: left;">Muy bajo</td>
+<td style="text-align: left;">Muy alta</td>
+<td style="text-align: left;">Lenta</td>
+<td style="text-align: left;">Demasiado retraso</td>
+</tr>
+</tbody>
+</table>
+<p>La presentación pide probar:</p>
+<div class="arithmatex">\[
+N = 3, \quad N = 10, \quad N = 50
+\]</div>
+<p>Pusimos <strong>N = 10</strong> <br>
+<strong>Justificación:</strong> Se eligió una ventana de promedio móvil de N = 10 porque permitió disminuir considerablemente el ruido de la lectura sin generar un retraso demasiado grande. Con N = 3 todavía se observaban variaciones considerables, mientras que con N = 50 la señal era más estable pero respondía lentamente a los cambios de temperatura.
+Eso coincide con la idea de la presentación: una ventana más grande suaviza más, pero genera mayor retraso. <br></p>
+<hr />
+<h3 id="4-codigo-comentado">4. Código comentado</h3>
+<p><img alt="Codigo comentado" src="../img_practica_4/Imagen8.png" width="40%" /> <br></p>
+<hr />
+<h3 id="5-esquematicos-con-conexiones">5. Esquemáticos con conexiones.</h3>
+<p><img alt="Esquematico" src="../img_practica_4/Imagen9.png" width="40%" /> <img alt="Esquematico" src="../img_practica_4/Imagen10.png" width="40%" /> <br></p>
+<hr />
+<p><strong>MPU6050</strong> <br>
+La parte correspondiente al MPU6050 no pudo realizarse físicamente debido a que no se contaba con el módulo durante la práctica. El resto de la práctica se realizó utilizando el potenciómetro y el sensor de temperatura LM35. De acuerdo con el material, el MPU6050 se comunica mediante I2C usando SDA en GPIO 21 y SCL en GPIO 22. <br></p>
+<hr />
+<h3 id="6-evidencias-del-armado-fisico">6. Evidencias del armado físico</h3>
+<p><img alt="Armado Fisico" src="../img_practica_4/Imagen11.png" width="40%" /> <br></p>
+<hr />
+<h3 id="7bitacora-que-fallo-que-resulto-inesperado-el-adc-es-tan-lineal-como-prometia-la-formula-teorica">7.Bitácora: qué falló, qué resultó inesperado (¿el ADC es tan lineal como prometía la fórmula teórica?)</h3>
+<p>Durante el desarrollo de la práctica se realizaron lecturas analógicas utilizando Arduino y el ESP32. Primero se conectó el potenciómetro y se observó que la lectura cambiaba conforme se giraba la perilla. Aunque teóricamente se esperaba que la relación entre posición y ADC fuera completamente lineal, aparecieron pequeñas diferencias entre los valores esperados y los obtenidos. <br></p>
+<p>Posteriormente se conectó el LM35. Fue necesario verificar cuidadosamente sus terminales, ya que el sensor debe conectarse a 3.3 V y una conexión incorrecta puede provocar que se caliente o que se queme ya que principalmente lo habíamos conectado a 5V y este se quemó y tuvimos que reemplazarlo. La salida del sensor se conectó al GPIO 35 del ESP32, como se indica en la práctica. <br></p>
+<p>Al mantener el LM35 aparentemente a una temperatura constante se observó que las lecturas del ADC no permanecían exactamente iguales. Los valores cambiaban ligeramente entre una medición y otra. Esto corresponde al ruido de medición mencionado en la presentación. <br> </p>
+<p>Para reducir estas variaciones se implementó un promedio móvil. Se compararon ventanas de N = 3, N = 10 y N = 50. Con N = 3 la señal respondía rápidamente pero todavía presentaba variaciones. Con N = 50 la señal era muy estable, aunque reaccionaba más lentamente. Por ello se seleccionó N = 10 como un equilibrio entre estabilidad y velocidad de respuesta. <br></p>
+<p>También se realizó una calibración del LM35 tomando diferentes puntos de temperatura y comparándolos con una referencia. A partir de estos datos se obtuvo una recta de calibración para convertir directamente la lectura ADC a temperatura. <br></p>
+<p>Una de las observaciones principales fue que el comportamiento real del ADC no es completamente idéntico al modelo teórico. Las pequeñas diferencias observadas muestran por qué es conveniente realizar una calibración experimental en lugar de depender únicamente de la ecuación ideal. <br></p>
+<p>La sección correspondiente al MPU6050 no pudo realizarse físicamente porque no se contaba con este sensor durante el desarrollo de la práctica. <br></p>
+<p>Uno de los principales obstáculos fue el estado del cable USB de conexión. Al inicio de la práctica, se experimentaron desconexiones intermitentes entre la placa ESP32 y la computadora. Al inspeccionar el hardware, se detectó un falso contacto y un posible cortocircuito en la base del conector USB, donde la cubierta protectora del cable estaba rota. Esto no solo dificultaba la subida del código y la visualización de datos en el Monitor Serial, sino que representaba un riesgo para la integridad del puerto USB de la computadora. Fue necesario asegurar el cable en una posición específica para poder estabilizar la conexión y proceder con las lecturas. <br></p>
+<p><img alt="oh no el cable" src="../img_practica_4/Imagen12.jpg" width="40%" /> <br></p>
+<p>Lamentablemente, no se pudo realizar la práctica con el MPU6050. Primero, debido a que no se contaba físicamente con el sensor durante el desarrollo. En segundo lugar, los intentos de simulación en la plataforma Wokwi fallaron; el servidor de compilación presentaba una carga alta constante ("Build server load"), lo que impedía que el proyecto se ejecutara y las lecturas de los sensores no se generaban, mostrando la simulación en un estado de pausa indefinida. <br></p>
+<p><img alt="final" src="../img_practica_4/Imagen13.png" width="40%" /> <br></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.tooltips", "navigation.sections"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

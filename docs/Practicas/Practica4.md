@@ -1,6 +1,6 @@
 ---
 titulo: "Sesión 4 — Sensores 101"
-fecha: 2026-08-28
+fecha: 2026-09-18
 autor: "Andrea Paola Carmona Casiano, Johan Mauricio Cerqueda Rojas, Francisco Javier Pérez Hernández"
 estado: completa   # borrador | completa
 ---

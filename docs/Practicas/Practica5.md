@@ -51,15 +51,12 @@ estado: completa   # borrador | completa
 **Demostraciones en Video** <br>
 [*Emparejamiento y envío de comandos vía Bluetooth*](./img_practica_5/funcion.mp4) <br>
 
-**Explicación:**<br>
+**Explicación:**
 
-    - **Envío de la señal:** Las instrucciones de texto (ON/OFF) se ingresan en el Monitor Serial de la computadora y se transmiten por aire vía Bluetooth hacia el ESP32.
-
-- **Lectura y limpieza:** Al recibir la señal, el código usa readStringUntil('\n') para capturar el texto y la función mensaje.trim() para eliminar espacios o caracteres invisibles que puedan interrumpir la lectura.   
-
-- **Evaluación lógica:** Mediante una estructura condicional if, el sistema verifica el mensaje si recibe "ON" asigna nivel alto (HIGH) al pin 23 para encender el LED, si recibe "OFF" asigna nivel bajo (LOW) para apagarlo. 
-
-- **Gestión de puertos COM:** Para lograr la comunicación inalámbrica seleccionamos en el IDE el puerto virtual Bluetooth (COM8), reservando el puerto USB físico (COM5) únicamente para la carga del programa.
+* **Envío de la señal:** Las instrucciones de texto (ON/OFF) se ingresan en el Monitor Serial de la computadora y se transmiten por aire vía Bluetooth hacia el ESP32.
+* **Lectura y limpieza:** Al recibir la señal, el código usa readStringUntil('\n') para capturar el texto y la función mensaje.trim() para eliminar espacios o caracteres invisibles que puedan interrumpir la lectura.
+* **Evaluación lógica:** Mediante una estructura condicional if, el sistema verifica el mensaje si recibe "ON" asigna nivel alto (HIGH) al pin 23 para encender el LED, si recibe "OFF" asigna nivel bajo (LOW) para apagarlo.
+* **Gestión de puertos COM:** Para lograr la comunicación inalámbrica seleccionamos en el IDE el puerto virtual Bluetooth (COM8), reservando el puerto USB físico (COM5) únicamente para la carga del programa.
 
 ## Fallas
 - **Síntoma:** El programa compilaba sin errores pero el ESP32 no respondía a los comandos enviados por Bluetooth, además de que la tarjeta no estaba vinculada al sistema.

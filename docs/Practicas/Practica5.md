@@ -22,12 +22,11 @@ estado: completa   # borrador | completa
 
  
 ## Materiales
-- (1×) ESP32 DevKit V1 (WROOM-32) <br>
+- (1×) ESP32 DevKit V1 <br>
 - (1×) Cable USB de datos <br>
 - (1×) LED + (1×) resistor 220 Ω <br>
-- (1×) Push button <br>
-- (1×) Resistor 10 kΩ (opcional) <br>
-- Protoboard y jumpers <br>
+- Breadboard y jumpers <br>
+- Celular Android (o PC con Bluetooth) + app "Serial Bluetooth Terminal"
 
 
 ## Desarrollo
@@ -52,7 +51,7 @@ estado: completa   # borrador | completa
 **Demostraciones en Video** <br>
 [*Emparejamiento y envío de comandos vía Bluetooth*](./img_practica_5/funcion.mp4) <br>
 
-**Explicación:** <br>
+**Explicación:**
 - **Envío de la señal:** Las instrucciones de texto (ON/OFF) se ingresan en el Monitor Serial de la computadora y se transmiten por aire vía Bluetooth hacia el ESP32.
 
 - **Lectura y limpieza:** Al recibir la señal, el código usa readStringUntil('\n') para capturar el texto y la función mensaje.trim() para eliminar espacios o caracteres invisibles que puedan interrumpir la lectura.   

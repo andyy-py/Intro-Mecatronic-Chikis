@@ -51,8 +51,9 @@ estado: completa   # borrador | completa
 **Demostraciones en Video** <br>
 [*Emparejamiento y envío de comandos vía Bluetooth*](./img_practica_5/funcion.mp4) <br>
 
-**Explicación:**
-- **Envío de la señal:** Las instrucciones de texto (ON/OFF) se ingresan en el Monitor Serial de la computadora y se transmiten por aire vía Bluetooth hacia el ESP32.
+**Explicación:**<br>
+
+    - **Envío de la señal:** Las instrucciones de texto (ON/OFF) se ingresan en el Monitor Serial de la computadora y se transmiten por aire vía Bluetooth hacia el ESP32.
 
 - **Lectura y limpieza:** Al recibir la señal, el código usa readStringUntil('\n') para capturar el texto y la función mensaje.trim() para eliminar espacios o caracteres invisibles que puedan interrumpir la lectura.   
 

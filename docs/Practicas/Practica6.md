@@ -71,9 +71,6 @@ estado: completa   # borrador | completa
 [*Demostración de funcionamiento: Sinfín + corona*](./img_practica_6/sinfin.mp4) <br>
 
 
-## Aprendizajes
---
-
-## Siguiente paso
---
-
+## Ejercicios
+![Sinfín + corona](./img_practica_6/ejercicios1.jpg){ width=70% } <br>
+![Sinfín + corona](./img_practica_6/ejercicios2.jpg){ width=70% } <br>

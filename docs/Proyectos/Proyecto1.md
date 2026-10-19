@@ -347,8 +347,9 @@ void loop() {
 4. *El switch debe cortar la línea positiva de la alimentación y ser accesible.*  
    Aprendimos que un interruptor funciona abriendo o cerrando el camino de la corriente, por lo que se conecta en serie con el cable positivo de la batería, usando la pata central y una lateral. También vimos que debe soportar la corriente del circuito y colocarse en un lugar accesible, para poder apagar el carro rápidamente sin desarmarlo.
 
-   ## Final
+<br>
 
-   ![Boceto 4](./img_proyecto_1/final.png){ width=70% } <br>
-   *Carrito final todo armado con chasis y alimentado correctamente* <br>
-   
+## Resultado Final
+
+![Boceto 4](./img_proyecto_1/final.png){ width=70% } <br>
+*Carrito final todo armado con chasis y alimentado correctamente* <br>

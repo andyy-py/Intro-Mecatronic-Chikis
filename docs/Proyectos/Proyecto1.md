@@ -67,7 +67,7 @@ Fabricar, diseñar y programar un carro utilizando un ESP32 controlado por Bluet
 | Componente | Cantidad | Costo |
 |---|---|---|
 | Batería portátil | 1 pza | $300.00 |
-| Termofil 1/16 | 1 pza | $10.00 |
+| Termofil 1/16 | 1 metro | $10.00 |
 | Jumper hembra-hembra | 1 pza | $38.00 |
 | Motorreductor de plástico AMA | 2 pzas | $70.00 |
 | Cautín de lápiz | 1 pza | $105.00 |
@@ -112,8 +112,6 @@ Para usar el control de Nintendo Switch Joy-Con / Xbox con el ESP32, se configur
 
 `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
 
-<br>
-
 `https://raw.githubusercontent.com/ricardoquesada/esp32-arduino-lib-builder/master/bluepad32_files/package_esp32_bluepad32_index.json`
 
 ### Protocolo de Comandos
@@ -123,9 +121,7 @@ Para usar el control de Nintendo Switch Joy-Con / Xbox con el ESP32, se configur
 
 ### Esquemático
 
-[*Demostración del funcionamiento 1*](./img_proyecto_1/funcionamiento1.mp4) <br>
-[*Demostración del funcionamiento 2*](./img_proyecto_1/funcionamiento2.mp4) <br>
-
+[*Esquematico*](./img_proyecto_1/esquematico.mp4) <br>
 
 En este video se muestra la simulación del circuito del carro en Wokwi. Como Wokwi no tiene un puente H ni motores DC entre sus componentes, se utilizo un chip personalizado creado con código por la comunidad, que representa al driver TB6612FNG, un puente H doble. Cada motor está representado con dos LEDs: el verde prende cuando gira hacia adelante y el rojo cuando gira hacia atrás. Al correr la simulación, el programa mueve cada motor por separado, luego los dos juntos y al final hace los giros, y en el monitor serial se ve qué movimiento está haciendo.
 
@@ -323,6 +319,9 @@ void loop() {
 
 
 ## Video de demostración
+
+[*Demostración del funcionamiento 1*](./img_proyecto_1/funcionamiento1.mp4) <br>
+[*Demostración del funcionamiento 2*](./img_proyecto_1/funcionamiento2.mp4) <br>
 
 ## Requisitos vs. resultados
  

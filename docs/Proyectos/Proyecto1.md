@@ -70,11 +70,8 @@ Fabricar, diseñar y programar un carro utilizando un ESP32 controlado por Bluet
 | Termofil 1/16 | 1 metro | $10.00 |
 | Jumper hembra-hembra | 1 pza | $38.00 |
 | Motorreductor de plástico AMA | 2 pzas | $70.00 |
-| Cautín de lápiz | 1 pza | $105.00 |
 | Mini switch 3 patas | 1 pza | $15.00 |
-| ESP32 | 1 pza | $171.55 |
 | Cinchos negros | 1 paquete | $34.00 |
-| Kit de chasis | 1 pza | $363.00 |
 | Cable negro y rojo | 3 m | $30.00 |
 | Tornillos | 1 paquete | $25.00 |
 
@@ -316,7 +313,7 @@ void loop() {
     delay(20);
 }
 ```
-
+**Codigo hecho con chat**
 
 ## Video de demostración
 
@@ -353,3 +350,4 @@ void loop() {
 
 ![Boceto 4](./img_proyecto_1/final.png){ width=70% } <br>
 *Carrito final todo armado con chasis y alimentado correctamente* <br>
+

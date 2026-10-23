@@ -112,9 +112,9 @@ Para usar el control de Nintendo Switch Joy-Con / Xbox con el ESP32, se configur
 `https://raw.githubusercontent.com/ricardoquesada/esp32-arduino-lib-builder/master/bluepad32_files/package_esp32_bluepad32_index.json`
 
 ### Protocolo de Comandos
-- **Joystick Analógico (Eje Y):** Controla avance y retroceso con una zona muerta digital de 35 unidades.
-- **Joystick Analógico (Eje X):** Aplica mezcla de tracción diferencial dividida entre 2 (velocidadBase / 2).
-- **Botones L1 / R1 (SL / SR):** Disminuyen o aumentan la velocidad base en pasos de 15 unidades (Rango: 60 a 255).
+- **Joystick Analógico (Eje Y):** Controla hacia adelantes y atras (zona muerta digital de 35 unidades)
+- **Joystick Analógico (Eje X):** Controla izquierda y derecha
+- **Botones L1 / R1 (SL / SR):** Disminuyen o aumentan la velocidad base en pasos de 15 unidades (Rango: 60 a 255)
 
 ### Esquemático
 

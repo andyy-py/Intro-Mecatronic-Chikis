@@ -84,99 +84,175 @@
 
 ---
 
-## Lista de materiales (BOM)
+## Código de control (ESP32)
 
-| Componente | Precio | Obtención |
-| :--- | :--- | :--- |
-| Portapilas | $70 | Comprado |
-| Power Bank | $350 | Comprado |
-| Baterías | $440 | Comprado |
-| Servo | $100 | Comprado |
-| ESP32 | $180 | Reutilizado |
-| Puente H TB6612 | $102 | Prestado |
-| Motores TT con caja reductora | $140 | Prestado |
-| Llantas de plástico | $49 | Comprado |
-| Rueda loca | $20 | Comprado |
-| Tornillos y tuercas | $10 | Prestado |
-| Power Bank adicional | $350 | Comprado |
-| Impresión del chasis | $16 | Prestado |
-| Impresión de la carrocería | $60 | Prestado |
-| Jumpers | $60 | Prestado |
-| Mini switch | $20 | Comprado |
+<p>Código definitivo implementado en el ESP32 para el control mediante mando de Xbox a través de Bluetooth:</p>
 
-> **Nota:** Se conservan los dos registros de Power Bank de la lista original.
+```cpp
+#include <Arduino.h>
+#include <BLEGamepadClient.h>
+#include <ESP32Servo.h>
 
----
+XboxController controller;
+Servo brazoServo;
 
-## Análisis de riesgos
+// Pines TB6612FNG
+const int pinPWMA = 14;
+const int pinAIN1 = 27;
+const int pinAIN2 = 26;
+const int pinBIN1 = 25;
+const int pinBIN2 = 33;
+const int pinPWMB = 32;
+const int pinSTBY = 4;
 
-| Riesgo | Solución propuesta |
-| :--- | :--- |
-| Sobreesfuerzo del servo | Reemplazarlo por otro servo. |
-| Desprendimiento de una soldadura | Volver a soldar la conexión. |
-| Descarga de las baterías | Utilizar baterías de repuesto cargadas. |
-| Motores con poca velocidad | Revisar la alimentación y la capacidad de corriente. |
-| El carro no se mueve | Verificar conexiones, alimentación y código. |
+// LED integrado: parpadea buscando control, fijo si está conectado
+const int pinLED = 2;
 
----
+// ================== AJUSTES ==================
+const bool USAR_SERVO = false;       // Pon en true si vuelves a utilizar el servo de tiro
 
-## Bitácora de fallas
+// Servo SG90 (mecanismo de tiro - opcional)
+const int pinSERVO = 13;
+const int POS_REPOSO = 0;
+const int POS_GOLPE  = 90;
 
-| ¿Qué falló? | ¿Cómo lo encontraron? | ¿Cómo lo resolvieron? |
-| :--- | :--- | :--- |
-| El servo hacía movimientos destinados a los motores. | Se utilizó la aplicación prototipo para controlar el servo y los motores. | Se corrigieron conexiones sueltas. |
-| El servo nunca se detenía. | Se probó el carro con el control de Xbox. | Se ajustó el código para detener el servo. |
-| El servo dejó de funcionar por sobreesfuerzo. | El servo externo dejó de girar después de corregir el código. | Se consiguió un reemplazo, pero no hubo tiempo para instalarlo y se descartó su uso. |
-| El carro no se movía. | Se encendió varias veces y ninguno de los motores respondió. | Se revisaron conexiones, se cambiaron las baterías y se volvió a cargar el código. |
+const bool INVERTIR_Y = false;       // si empujas arriba y va hacia atrás, pon true
+const bool INVERTIR_X = false;       // si gira al lado contrario, pon true
+const bool INVERTIR_MOTOR_A = true;  // motor izquierdo (si gira al revés, pon true)
+const bool INVERTIR_MOTOR_B = false; // motor derecho
 
----
+const float ZONA_MUERTA = 0.12;
+const int   PWM_MINIMO  = 60;
+const int   NIVELES[3]  = {150, 210, 255};  // 3 niveles (baja, media, alta)
+int nivel = 1;                              // arranca en media
 
-## Video de funcionamiento
+const int PASO_ACEL = 25;                   // aceleración limitada por tick
+const unsigned long PERIODO_CONTROL = 10;
 
-<p>En el siguiente video se puede observar el funcionamiento del carro.</p>
+// Tiro (solo aplica si USAR_SERVO es true)
+const unsigned long TIEMPO_GOLPE    = 120;
+const unsigned long TIEMPO_RECARGA = 300;
 
-<video controls width="100%" style="max-width: 750px; display: block; margin: 15px auto; border-radius: 8px;">
-    <source src="https://danielalejandrotmgh.github.io/IntroMecatronicaEquipo7/recursos/videos/VideoCarroBT.mp4" type="video/mp4">
-    Tu navegador no puede reproducir este video.
-</video>
+// Failsafe opcional
+const bool USAR_WATCHDOG = false;
+const unsigned long TIEMPO_FAILSAFE = 1000;
 
-[Abrir video en nueva pestaña](https://danielalejandrotmgh.github.io/IntroMecatronicaEquipo7/recursos/videos/VideoCarroBT.mp4){ .md-button target="_blank" }
+const bool DEBUG = true;
+// =============================================
 
----
+const int PWM_FREQ = 20000;
+const int PWM_RES  = 8;
 
-## Requisitos vs. resultados
+// Estado de motores (con signo: positivo adelante, negativo atrás)
+int actualA = 0;
+int actualB = 0;
 
-| # | Requisito | Resultado |
-| :-: | :--- | :---: |
-| 1 | Movimiento mediante Bluetooth | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 2 | Control de velocidad PWM | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 3 | Protocolo documentado | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 4 | Sistema failsafe | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 5 | Interruptor físico | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 6 | Alimentación separada y GND común | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 7 | Cableado ordenado | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 8 | Superficie para marcador ArUco | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 9 | Control mediante Xbox | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 10 | Pinzas rígidas | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 11 | Dos ruedas traseras y una frontal | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 12 | Cables de motores atravesando el chasis | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 13 | Carrocería protectora | <span style="color: #167647; font-weight: bold;">Sí</span> |
-| 14 | Servo para patear la pelota | <span style="color: #b42318; font-weight: bold;">No</span> |
+// Estado del tiro
+enum EstadoTiro { TIRO_LIBRE, TIRO_EXTENDIDO, TIRO_RECARGA };
+EstadoTiro estadoTiro = TIRO_LIBRE;
+unsigned long inicioTiro = 0;
 
----
+// Estado de botones y reportes
+bool prevLB = false, prevRB = false, prevTiro = false;
+float ultX = 0, ultY = 0;
+unsigned long ultimoCambio = 0;
+unsigned long ultimoControl = 0;
+unsigned long ultimoDebug = 0;
+unsigned long reportes = 0;
 
-## Lecciones aprendidas
+// ---------- Motores ----------
+void direccionMotor(int in1, int in2, int valor) {
+  if (valor > 0) {
+    digitalWrite(in1, HIGH); digitalWrite(in2, LOW);
+  } else if (valor < 0) {
+    digitalWrite(in1, LOW);  digitalWrite(in2, HIGH);
+  } else {
+    digitalWrite(in1, HIGH); digitalWrite(in2, HIGH);  // freno corto
+  }
+}
 
-1. **Hacer el trabajo con anticipación:** Avanzar desde que se asignó el proyecto permitió contar con tiempo para corregir los errores que aparecieron.
-2. **Verificar las conexiones:** En varias ocasiones se encontró que una conexión se había soltado y, al corregirla, el sistema volvió a funcionar.
-3. **Comprar materiales adecuados:** El portapilas resultó demasiado pequeño para las pilas que se utilizarían, lo que generó un gasto adicional.
+void escribirMotores(int a, int b) {
+  if (INVERTIR_MOTOR_A) a = -a;
+  if (INVERTIR_MOTOR_B) b = -b;
+  direccionMotor(pinAIN1, pinAIN2, a);
+  direccionMotor(pinBIN1, pinBIN2, b);
+  ledcWrite(pinPWMA, abs(a));
+  ledcWrite(pinPWMB, abs(b));
+}
 
----
+void detenerTodo() {
+  actualA = 0;
+  actualB = 0;
+  escribirMotores(0, 0);
+}
 
-## Créditos
+// Aceleración limitada; frenar o bajar velocidad es inmediato
+int rampa(int actual, int objetivo) {
+  if ((actual > 0 && objetivo < 0) || (actual < 0 && objetivo > 0)) actual = 0;
+  if (abs(objetivo) <= abs(actual)) return objetivo;
+  if (objetivo > 0) return min(actual + PASO_ACEL, objetivo);
+  return max(actual - PASO_ACEL, objetivo);
+}
 
-<p>
-    Se utilizó Claude AI para generar la estructura del diagrama
-    del código, el esquemático de conexiones y la estructura
-    del README del carro.
-</p>
+int valorPWM(float v) {
+  float a = fabsf(v);
+  if (a < 0.03) return 0;
+  int pwm = PWM_MINIMO + (int)(a * (NIVELES[nivel] - PWM_MINIMO));
+  return v > 0 ? pwm : -pwm;
+}
+
+// Mezcla tipo "arcade": Y = avance, X = giro
+void calcularObjetivo(float x, float y, int &objA, int &objB) {
+  float mag = sqrtf(x * x + y * y);
+  if (mag < ZONA_MUERTA) { objA = 0; objB = 0; return; }
+  if (mag > 1.0f) { x /= mag; y /= mag; mag = 1.0f; }
+  float escala = (mag - ZONA_MUERTA) / (1.0f - ZONA_MUERTA);
+  x = x / mag * escala;
+  y = y / mag * escala;
+
+  float izq = y + x;  // motor A = izquierdo
+  float der = y - x;  // motor B = derecho
+  float mx = fmaxf(fabsf(izq), fabsf(der));
+  if (mx > 1.0f) { izq /= mx; der /= mx; }
+
+  objA = valorPWM(izq);
+  objB = valorPWM(der);
+}
+
+// ---------- Tiro (servo) ----------
+void iniciarTiro() {
+  if (!USAR_SERVO) return;
+  if (estadoTiro != TIRO_LIBRE) return;
+  if (!brazoServo.attached()) brazoServo.attach(pinSERVO, 500, 2400);
+  brazoServo.write(POS_GOLPE);
+  inicioTiro = millis();
+  estadoTiro = TIRO_EXTENDIDO;
+}
+
+void actualizarTiro(unsigned long ahora) {
+  if (!USAR_SERVO) return;
+  switch (estadoTiro) {
+    case TIRO_EXTENDIDO:
+      if (ahora - inicioTiro >= TIEMPO_GOLPE) {
+        brazoServo.write(POS_REPOSO);
+        estadoTiro = TIRO_RECARGA;
+      }
+      break;
+    case TIRO_RECARGA:
+      if (ahora - inicioTiro >= TIEMPO_GOLPE + TIEMPO_RECARGA) {
+        brazoServo.detach();
+        estadoTiro = TIRO_LIBRE;
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  delay(500);
+
+  Serial.println();
+  Serial.println("========================================");
+  Serial.println("    CARRITO FUTBOL - CONTROL XBOX

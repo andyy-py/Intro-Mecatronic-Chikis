@@ -39,7 +39,7 @@ estado: completa   # borrador | completa
 
 ### Parte A · Lazo abierto con el carro
 
-*Las fotos de esta parte son las mismas que las del equipo de Tania, ya que trabajamos juntos en esta práctica.* <br>
+*Las fotos de esta parte son las mismas que las del equipo de Tania, ya que trabajamos juntos en esta práctica (solo en la parte A).* <br>
 
 **Código** <br>
 El código fue generado con IA. Hace avanzar el carro de forma recta durante 3 segundos con PWM fijo y luego lo detiene. <br>
@@ -102,7 +102,6 @@ void loop() {
   // Se deja vacío para que la secuencia no se repita.
 }
 ```
-*Código en lazo abierto: avance recto de 3 s con PWM fijo (generado con IA)* <br>
 
 **Peso utilizado** <br>
 ![Peso utilizado en las pruebas: 312.8 g](./img_practica_7/peso.png){ width=50% } <br>
